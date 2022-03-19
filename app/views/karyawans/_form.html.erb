@@ -1,0 +1,37 @@
+<%= form_with(model: karyawan, local: true) do |form| %>
+  <% if karyawan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(karyawan.errors.count, "error") %> prohibited this karyawan from being saved:</h2>
+
+      <ul>
+        <% karyawan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mt-3">
+    <%= form.label :golongan_id %>
+    <%= form.collection_select(:golongan_id, Golongan.all, :id, :id, {prompt: true},{class:"form-select"}) %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.label :nama %>
+    <%= form.text_field :nama, class:"form-control" %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.label :jns_klm %><br>
+    
+    <%= radio_button("karyawan", "jns_klm", "Laki-laki") %>
+    <label for="karyawan_jns_klm_laki-laki">Laki-laki</label>
+    
+    <%= radio_button("karyawan", "jns_klm", "Perempuan") %>
+    <label for="karyawan_jns_klm_perempuan">Perempuan</label>
+  </div>
+
+  <div class="mt-3">
+    <%= form.submit "Submit", class:"btn btn-success" %>
+  </div>
+<% end %>

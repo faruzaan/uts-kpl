@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tunjangan</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Besar tunjangan</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tunjangans.each do |tunjangan| %>
+      <tr>
+        <td><%= tunjangan.nama %></td>
+        <td><%= tunjangan.besar_tunjangan %></td>
+        <td><%= link_to 'Show', tunjangan %></td>
+        <td><%= link_to 'Edit', edit_tunjangan_path(tunjangan) %></td>
+        <td><%= link_to 'Destroy', tunjangan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tunjangan', new_tunjangan_path %>

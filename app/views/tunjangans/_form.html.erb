@@ -1,0 +1,27 @@
+<%= form_with(model: tunjangan, local: true) do |form| %>
+  <% if tunjangan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tunjangan.errors.count, "error") %> prohibited this tunjangan from being saved:</h2>
+
+      <ul>
+        <% tunjangan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nama %>
+    <%= form.text_field :nama %>
+  </div>
+
+  <div class="field">
+    <%= form.label :besar_tunjangan %>
+    <%= form.number_field :besar_tunjangan %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

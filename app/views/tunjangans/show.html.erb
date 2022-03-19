@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nama:</strong>
+  <%= @tunjangan.nama %>
+</p>
+
+<p>
+  <strong>Besar tunjangan:</strong>
+  <%= @tunjangan.besar_tunjangan %>
+</p>
+
+<%= link_to 'Edit', edit_tunjangan_path(@tunjangan) %> |
+<%= link_to 'Back', tunjangans_path %>

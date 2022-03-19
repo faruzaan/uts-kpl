@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gaji</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Karyawan</th>
+      <th>Tunjangan</th>
+      <th>Desc</th>
+      <th>Potongan</th>
+      <th>Total Gaji</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gajis.each do |gaji| %>
+      <tr>
+        <% total_gaji = gaji.karyawan.golongan.gapok - gaji.potongan %> 
+        <td><%= gaji.karyawan.nama%></td>
+        <td>
+          <% gaji.tunjangan_ids.each do |tunjangan| %>
+            <% total_gaji = total_gaji + Tunjangan.find_by_id(tunjangan).besar_tunjangan %>
+            <%= Tunjangan.find_by_id(tunjangan).nama %>,
+          <% end %>
+        </td>
+        <td><%= gaji.desc %></td>
+        <td><%= gaji.potongan %></td>
+        <td>
+          <%= total_gaji%>
+        </td>
+        <td><%= link_to 'Show', gaji %></td>
+        <td><%= link_to 'Edit', edit_gaji_path(gaji) %></td>
+        <td><%= link_to 'Destroy', gaji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gaji', new_gaji_path %>

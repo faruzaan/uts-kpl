@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id golongan:</strong>
+  <%= @karyawan.golongan.id %>
+</p>
+
+<p>
+  <strong>Nama:</strong>
+  <%= @karyawan.nama %>
+</p>
+
+<p>
+  <strong>Jns klm:</strong>
+  <%= @karyawan.jns_klm %>
+</p>
+
+<%= link_to 'Edit', edit_karyawan_path(@karyawan) %> |
+<%= link_to 'Back', karyawans_path %>

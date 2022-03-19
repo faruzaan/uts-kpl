@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Karyawan:</strong>
+  <%= @gaji.karyawan.nama %>
+</p>
+
+<p>
+  <strong>Tujangan: <%= @gaji.tunjangan_ids.count %></strong><br>
+  <% id = 1 %>
+  <% @gaji.tunjangan_ids.each do |tunjangan| %>
+    <%= id %>.
+    <%= Tunjangan.find_by_id(tunjangan).nama %><br>
+    <% id = id + 1 %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @gaji.desc %>
+</p>
+
+<p>
+  <strong>Potongan:</strong>
+  <%= @gaji.potongan %>
+</p>
+
+<%= link_to 'Edit', edit_gaji_path(@gaji) %> |
+<%= link_to 'Back', gajis_path %>

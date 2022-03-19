@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_golongan: 1
+  nama: MyString
+  jns_klm: MyString
+
+two:
+  id_golongan: 1
+  nama: MyString
+  jns_klm: MyString
